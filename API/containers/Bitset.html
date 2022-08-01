@@ -183,9 +183,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../keywords.html">CMake Keywords</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../core-index.html">API: Core</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../core/Initialize-and-Finalize.html">Initialize and Finalize</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../core/initialize_finalize/initialize.html">Kokkos::initialize</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../core/initialize_finalize/finalize.html">Kokkos::finalize</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../core/initialize_finalize/ScopeGuard.html">Kokkos::ScopeGuard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../core/initialize_finalize/initialize.html">initialize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../core/initialize_finalize/finalize.html">finalize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../core/initialize_finalize/ScopeGuard.html">ScopeGuard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../core/initialize_finalize/InitializationSettings.html">InitializationSettings</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../core/View.html">View and related</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -589,11 +590,6 @@ otherwise, it occurs at a larger index than <code class="docutils literal notran
 </pre></div>
 </div>
 <p>Copy a <code class="docutils literal notranslate"><span class="pre">ConstBitset</span></code> from <code class="docutils literal notranslate"><span class="pre">src</span></code> on <code class="docutils literal notranslate"><span class="pre">SrcDevice</span></code> to a <code class="docutils literal notranslate"><span class="pre">Bitset</span></code> <code class="docutils literal notranslate"><span class="pre">dst</span></code> on <code class="docutils literal notranslate"><span class="pre">DstDevice</span></code>.</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">DstDevice</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">SrcDevice</span><span class="o">&gt;</span><span class="w"></span>
-<span class="kt">void</span><span class="w"> </span><span class="n">deep_copy</span><span class="p">(</span><span class="n">ConstBitset</span><span class="o">&lt;</span><span class="n">DstDevice</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">dst</span><span class="p">,</span><span class="w"> </span><span class="n">ConstBitset</span><span class="o">&lt;</span><span class="n">SrcDevice</span><span class="o">&gt;</span><span class="w"> </span><span class="k">const</span><span class="o">&amp;</span><span class="w"> </span><span class="n">src</span><span class="p">)</span><span class="w"></span>
-</pre></div>
-</div>
-<p>Copy a <code class="docutils literal notranslate"><span class="pre">ConstBitset</span></code> from <code class="docutils literal notranslate"><span class="pre">src</span></code> on <code class="docutils literal notranslate"><span class="pre">SrcDevice</span></code> to <code class="docutils literal notranslate"><span class="pre">dst</span></code> on <code class="docutils literal notranslate"><span class="pre">DstDevice</span></code>.</p>
 </section>
 </section>
 
