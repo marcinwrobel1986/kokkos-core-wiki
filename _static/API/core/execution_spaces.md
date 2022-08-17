@@ -5,6 +5,11 @@
 
 `Kokkos::Cuda` is an [`ExecutionSpace` type](ExecutionSpaceConcept) representing execution on a Cuda device.  Except in rare instances, it should not be used directly, but instead should be used generically as an execution space.  For details, see [the documentation on the `ExecutionSpace` concept](ExecutionSpaceConcept).
 
+(HIP)=
+## `Kokkos::HIP`
+
+`Kokkos::HIP` <sup>promoted from [Experimental](ExperimentalNamespace) since 4.0</sup> is an [`ExecutionSpace` type](ExecutionSpaceConcept) representing execution on a device supported by HIP.  Except in rare instances, it should not be used directly, but instead should be used generically as an execution space.  For details, see [the documentation on the `ExecutionSpace` concept](ExecutionSpaceConcept).
+
 (HPX)=
 ## `Kokkos::HPX`
 
@@ -31,6 +36,18 @@
 The concept of an `ExecutionSpace` is the fundamental abstraction to represent the "where" and the "how" that execution takes place in Kokkos.  Most code that uses Kokkos should be written to the *generic concept* of an `ExecutionSpace` rather than any specific instance.  This page talks practically about how to *use* the common features of execution spaces in Kokkos; for a more formal and theoretical treatment, see [this document](KokkosConcepts).
 
 > *Disclaimer*: There is nothing new about the term "concept" in C++; anyone who has ever used templates in C++ has used concepts whether they knew it or not.  Please do not be confused by the word "concept" itself, which is now more often associated with a shiny new C++20 language feature.  Here, "concept" just means "what you're allowed to do with a type that is a template parameter in certain places".
+
+### Aliases based on configuration
+
+(DefaultExecutionSpace)=
+## `Kokkos::DefaultExecutionSpace`
+
+`Kokkos::DefaultExecutionSpace` is an alias of [`ExecutionSpace` type](ExecutionSpaceConcept) pointing to an `ExecutionSpace` based on the current configuration of Kokkos. It is set to the highest available in the hirachy `device,host-parallel,host-serial`. It also serves as default for optionally specified template prameters of [`ExecutionSpace` type](ExecutionSpaceConcept).
+
+(DefaultHostExecutionSpace)=
+## `Kokkos::DefaultHostExecutionSpace`
+
+`Kokkos::DefaultHostExecutionSpace` is an alias of [`ExecutionSpace` type](ExecutionSpaceConcept) pointing to an `ExecutionSpace` based on the current configuration of Kokkos. It is set to the highest available in the hirachy `host-parallel,host-serial`.
 
 ### Very Simplest Use: Not at all?
 
