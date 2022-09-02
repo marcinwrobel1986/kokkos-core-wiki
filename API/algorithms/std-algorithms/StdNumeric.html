@@ -200,6 +200,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../core/view/realloc.html"><code class="docutils literal notranslate"><span class="pre">realloc</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../core/view/resize.html"><code class="docutils literal notranslate"><span class="pre">resize</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../core/view/subview.html"><code class="docutils literal notranslate"><span class="pre">subview</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../core/view/Subview.html"><code class="docutils literal notranslate"><span class="pre">Kokkos::Subview</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../core/view/view.html"><code class="docutils literal notranslate"><span class="pre">View</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../core/view/view_alloc.html"><code class="docutils literal notranslate"><span class="pre">view_alloc()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../core/view/view_like.html">View-like Types</a></li>
@@ -251,6 +252,7 @@
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../core/Spaces.html">Spaces</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../core/execution_spaces.html">Execution Spaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../core/spaces/partition_space.html">Kokkos::partition_space()</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../core/memory_spaces.html">Memory Spaces</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../core/SpaceAccessibility.html">Space Accessibility</a></li>
 </ul>
@@ -566,12 +568,6 @@ two arguments <code class="docutils literal notranslate"><span class="pre">a,b</
 <span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n">ValueType</span><span class="w"> </span><span class="k">operator</span><span class="p">()(</span><span class="k">const</span><span class="w"> </span><span class="n">ValueType</span><span class="o">&amp;</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ValueType</span><span class="o">&amp;</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="cm">/* ... */</span><span class="w"></span>
 <span class="w">  </span><span class="p">}</span><span class="w"></span>
-
-<span class="w">  </span><span class="n">KOKKOS_FUNCTION</span><span class="w"></span>
-<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n">ValueType</span><span class="w"> </span><span class="k">operator</span><span class="p">()(</span><span class="k">const</span><span class="w"> </span><span class="k">volatile</span><span class="w"> </span><span class="n">ValueType</span><span class="o">&amp;</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"></span>
-<span class="w">  							   </span><span class="k">const</span><span class="w"> </span><span class="k">volatile</span><span class="w"> </span><span class="n">ValueType</span><span class="o">&amp;</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="cm">/* ... */</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
 </pre></div>
 </div>
@@ -807,12 +803,6 @@ two arguments <code class="docutils literal notranslate"><span class="pre">a,b</
 <span class="w">                               </span><span class="k">const</span><span class="w"> </span><span class="n">ValueType</span><span class="o">&amp;</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="cm">/* ... */</span><span class="w"></span>
 <span class="w">  </span><span class="p">}</span><span class="w"></span>
-
-<span class="w">  </span><span class="n">KOKKOS_FUNCTION</span><span class="w"></span>
-<span class="w">  </span><span class="k">constexpr</span><span class="w"> </span><span class="n">ValueType</span><span class="w"> </span><span class="k">operator</span><span class="p">()(</span><span class="k">const</span><span class="w"> </span><span class="k">volatile</span><span class="w"> </span><span class="n">ValueType</span><span class="o">&amp;</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"></span>
-<span class="w">  							   </span><span class="k">const</span><span class="w"> </span><span class="k">volatile</span><span class="w"> </span><span class="n">ValueType</span><span class="o">&amp;</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="cm">/* ... */</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
 </pre></div>
 </div>
@@ -1015,21 +1005,12 @@ of <code class="docutils literal notranslate"><span class="pre">view_from</span>
 <span class="w">                          </span><span class="k">const</span><span class="w"> </span><span class="n">value_type</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">     </span><span class="k">return</span><span class="w"> </span><span class="cm">/* ... */</span><span class="p">;</span><span class="w"></span>
 <span class="w">   </span><span class="p">}</span><span class="w"></span>
-
-<span class="w">   </span><span class="n">return_type</span><span class="w"> </span><span class="k">operator</span><span class="p">()(</span><span class="k">const</span><span class="w"> </span><span class="k">volatile</span><span class="w"> </span><span class="n">value_type</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"></span>
-<span class="w">                    	    </span><span class="k">const</span><span class="w"> </span><span class="k">volatile</span><span class="w"> </span><span class="n">value_type</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">     </span><span class="k">return</span><span class="w"> </span><span class="cm">/* ... */</span><span class="p">;</span><span class="w"></span>
-<span class="w">   </span><span class="p">}</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
 </pre></div>
 </div>
 <p>The return type <code class="docutils literal notranslate"><span class="pre">return_type</span></code> must be such that an object of type <code class="docutils literal notranslate"><span class="pre">OutputIteratorType</span></code>
 for (1,2,5,6) or an object of type <code class="docutils literal notranslate"><span class="pre">value_type</span></code> where <code class="docutils literal notranslate"><span class="pre">value_type</span></code> is the
 value type of <code class="docutils literal notranslate"><span class="pre">view_dest</span></code> for (3,4,7,8) can be dereferenced and assigned a value of type <code class="docutils literal notranslate"><span class="pre">return_type</span></code>.</p>
-<ul class="simple">
-<li><p>the volatile overload is needed for correctness by the current Kokkos
-implementation of prefix scan operations</p></li>
-</ul>
 </li>
 </ul>
 </section>

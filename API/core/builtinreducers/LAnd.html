@@ -200,6 +200,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../view/realloc.html"><code class="docutils literal notranslate"><span class="pre">realloc</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../view/resize.html"><code class="docutils literal notranslate"><span class="pre">resize</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../view/subview.html"><code class="docutils literal notranslate"><span class="pre">subview</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../view/Subview.html"><code class="docutils literal notranslate"><span class="pre">Kokkos::Subview</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../view/view.html"><code class="docutils literal notranslate"><span class="pre">View</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../view/view_alloc.html"><code class="docutils literal notranslate"><span class="pre">view_alloc()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../view/view_like.html">View-like Types</a></li>
@@ -251,6 +252,7 @@
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../Spaces.html">Spaces</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../execution_spaces.html">Execution Spaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../spaces/partition_space.html">Kokkos::partition_space()</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../memory_spaces.html">Memory Spaces</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../SpaceAccessibility.html">Space Accessibility</a></li>
 </ul>
@@ -428,9 +430,6 @@
 <span class="w">   </span><span class="kt">void</span><span class="w"> </span><span class="n">join</span><span class="p">(</span><span class="n">value_type</span><span class="o">&amp;</span><span class="w"> </span><span class="n">dest</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">value_type</span><span class="o">&amp;</span><span class="w"> </span><span class="n">src</span><span class="p">)</span><span class="w">  </span><span class="k">const</span><span class="w"></span>
 
 <span class="w">   </span><span class="n">KOKKOS_INLINE_FUNCTION</span><span class="w"></span>
-<span class="w">   </span><span class="kt">void</span><span class="w"> </span><span class="n">join</span><span class="p">(</span><span class="k">volatile</span><span class="w"> </span><span class="n">value_type</span><span class="o">&amp;</span><span class="w"> </span><span class="n">dest</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">volatile</span><span class="w"> </span><span class="n">value_type</span><span class="o">&amp;</span><span class="w"> </span><span class="n">src</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
-
-<span class="w">   </span><span class="n">KOKKOS_INLINE_FUNCTION</span><span class="w"></span>
 <span class="w">   </span><span class="kt">void</span><span class="w"> </span><span class="n">init</span><span class="p">(</span><span class="w"> </span><span class="n">value_type</span><span class="o">&amp;</span><span class="w"> </span><span class="n">val</span><span class="p">)</span><span class="w">  </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
 
 <span class="w">   </span><span class="n">KOKKOS_INLINE_FUNCTION</span><span class="w"></span>
@@ -477,11 +476,6 @@
 <h3>Functions<a class="headerlink" href="#functions" title="Permalink to this heading">#</a></h3>
 <ul>
 <li><div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">join</span><span class="p">(</span><span class="n">value_type</span><span class="o">&amp;</span><span class="w"> </span><span class="n">dest</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">value_type</span><span class="o">&amp;</span><span class="w"> </span><span class="n">src</span><span class="p">)</span><span class="w">  </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
-</pre></div>
-</div>
-<p>Store logical <code class="docutils literal notranslate"><span class="pre">and</span></code> of <code class="docutils literal notranslate"><span class="pre">src</span></code> and <code class="docutils literal notranslate"><span class="pre">dest</span></code> into <code class="docutils literal notranslate"><span class="pre">dest</span></code>:  <code class="docutils literal notranslate"><span class="pre">dest</span> <span class="pre">=</span> <span class="pre">src</span> <span class="pre">&amp;&amp;</span> <span class="pre">dest;</span></code>.</p>
-</li>
-<li><div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">join</span><span class="p">(</span><span class="k">volatile</span><span class="w"> </span><span class="n">value_type</span><span class="o">&amp;</span><span class="w"> </span><span class="n">dest</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">volatile</span><span class="w"> </span><span class="n">value_type</span><span class="o">&amp;</span><span class="w"> </span><span class="n">src</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Store logical <code class="docutils literal notranslate"><span class="pre">and</span></code> of <code class="docutils literal notranslate"><span class="pre">src</span></code> and <code class="docutils literal notranslate"><span class="pre">dest</span></code> into <code class="docutils literal notranslate"><span class="pre">dest</span></code>:  <code class="docutils literal notranslate"><span class="pre">dest</span> <span class="pre">=</span> <span class="pre">src</span> <span class="pre">&amp;&amp;</span> <span class="pre">dest;</span></code>.</p>
