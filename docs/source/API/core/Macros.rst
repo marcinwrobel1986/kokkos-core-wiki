@@ -28,8 +28,6 @@ General Settings
 +-------------------------------------------------+-------------------------------------------------------------------------------------------------------------+
 | ``KOKKOS_ENABLE_HBWSPACE``                      | Defined if the experimental ``HBWSpace`` memory space is enabled, enabled by KOKKOS_ENABLE_MEMKIND.         |
 +-------------------------------------------------+-------------------------------------------------------------------------------------------------------------+
-| ``KOKKOS_ENABLE_PROFILING_LOAD_PRINT``          | Kokkos will output a message when the profiling library is loaded.                                          |
-+-------------------------------------------------+-------------------------------------------------------------------------------------------------------------+
 | ``KOKKOS_ENABLE_TUNING``                        | Whether bindings for tunings are available (see `#2422 <https://github.com/kokkos/kokkos/pull/2422>`_).     |
 +-------------------------------------------------+-------------------------------------------------------------------------------------------------------------+
 | ``KOKKOS_ENABLE_COMPLEX_ALIGN``                 | Whether complex types are aligned.                                                                          |
@@ -232,6 +230,8 @@ Architectures
 | ``KOKKOS_ARCH_AMPERE80``          | Optimize for NVIDIA Ampere generation CC 8.0 (GPU)                                |
 +-----------------------------------+-----------------------------------------------------------------------------------+
 | ``KOKKOS_ARCH_AMPERE86``          | Optimize for NVIDIA Ampere generation CC 8.6 (GPU)                                |
++-----------------------------------+-----------------------------------------------------------------------------------+
+| ``KOKKOS_ARCH_ADA89``             | Optimize for NVIDIA Ada generation CC 8.9 (GPU) :sup:`since Kokkos 4.1`           |
 +-----------------------------------+-----------------------------------------------------------------------------------+
 | ``KOKKOS_ARCH_HOPPER``            | Set if any NVIDIA Hopper architecture has been enabled :sup:`since Kokkos 4.0`    |
 +-----------------------------------+-----------------------------------------------------------------------------------+
